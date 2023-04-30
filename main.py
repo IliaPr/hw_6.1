@@ -12,13 +12,6 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes('Hello, World wide web!', 'utf-8'))
 
-    def load_json(self):
-        with open('user_data.json', 'r') as f:
-            return json.load(f)
-
-    def save_json(self, json_data):
-        with open('user_data.json', 'w') as f:
-            json.dump(json_data, f)
     def do_POST(self):
         '''Прием POST запроса и печать полученных данных'''
         content_length = int(self.headers['Content-Length'])
